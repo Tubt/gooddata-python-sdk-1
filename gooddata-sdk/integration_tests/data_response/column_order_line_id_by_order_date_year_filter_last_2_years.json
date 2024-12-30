@@ -1,0 +1,34 @@
+{
+  "id": "number_of_order_line_ids_by_year",
+  "title": "Number of Order Line IDs by Year",
+  "visualizationType": "COLUMN",
+  "metrics": [
+    {
+      "id": "order_line_id",
+      "type": "attribute",
+      "title": "Number of Order Line IDs",
+      "aggFunction": "COUNT"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "order_date.year",
+      "type": "attribute",
+      "title": "Order date - Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "order_date",
+      "granularity": "YEAR",
+      "_from": -1,
+      "to": 0
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a line chart to show a clearer trend over the years.",
+      "label": "Line Chart by Year"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "number_of_order_line_id_by_year_2023",
+  "title": "Number of Order Line ID by Year (2023)",
+  "visualizationType": "COLUMN",
+  "metrics": [
+    {
+      "id": "order_line_id",
+      "type": "attribute",
+      "title": "Number of Order Line ID",
+      "aggFunction": "COUNT"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "order_date.year",
+      "type": "attribute",
+      "title": "Order date - Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "order_date",
+      "from": "2023-01-01 00:00",
+      "to": "2023-12-31 23:59"
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a Table to view exact counts for each year.",
+      "label": "Switch to Table"
+    }
+  ]
+}

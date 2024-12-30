@@ -3,7 +3,7 @@
 import os
 
 # Define environment variables
-HOST = os.getenv("GOODDATA_HOST", "https://checklist.staging.stg11.panther.intgdc.com")
-TOKEN = os.getenv("GOODDATA_TOKEN", "<your token>")
-DATASOURCE_ID = os.getenv("DATASOURCE_ID", "your datasource")
-WORKSPACE_ID = "your workspace"
+HOST = os.getenv("GOODDATA_HOST", "https://testing.env.com")
+TOKEN = os.getenv("GOODDATA_TOKEN", "")
+DATASOURCE_ID = os.getenv("DATASOURCE_ID", "")
+WORKSPACE_ID = "workspace_id"

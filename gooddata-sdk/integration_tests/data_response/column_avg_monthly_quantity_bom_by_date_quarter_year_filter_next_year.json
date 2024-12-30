@@ -1,0 +1,38 @@
+{
+  "id": "average_monthly_quantity_bom_by_quarter_year_next_year",
+  "title": "Average Monthly Quantity BOM by Quarter/Year - Next Year",
+  "visualizationType": "COLUMN",
+  "metrics": [
+    {
+      "id": "monthly_quantity_bom",
+      "type": "fact",
+      "title": "Average Monthly Quantity BOM",
+      "aggFunction": "AVG"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "date.quarter",
+      "type": "attribute",
+      "title": "Date - Quarter/Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "inventory_month",
+      "granularity": "YEAR",
+      "_from": 1,
+      "to": 1
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a LINE chart to show the trend of Average Monthly Quantity BOM over quarters.",
+      "label": "Line Chart for Quarterly Trend"
+    },
+    {
+      "query": "Focus on a more granular time range like month within the next year.",
+      "label": "Monthly Granularity for Next Year"
+    }
+  ]
+}

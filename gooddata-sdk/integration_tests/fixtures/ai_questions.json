@@ -1,18 +1,82 @@
 [
     {
+        "QuestionNumber": 1,
         "question": "What is total returns per month? show as COLUMN chart",
         "expected_objects_file": "column_total_returns_by_month.json"
     },
     {
+        "QuestionNumber": 2,
         "question": "Add filter by current year, show as COLUMN chart",
         "expected_objects_file": "column_total_returns_by_month_filter_current_year.json"
     },
     {
+        "QuestionNumber": 3,
         "question": "Switch to LINE chart",
         "expected_objects_file": "line_total_returns_by_month_filter_current_year.json"
     },
     {
+        "QuestionNumber": 4,
         "question": "Replace metric Total Customers instead of total returns",
         "expected_objects_file": "line_total_customers_by_month_filter_current_year.json"
+    },
+    {
+        "QuestionNumber": 5,
+        "question": "Add one more metric: net orders",
+        "expected_objects_file": "line_total_customers_net_orders_by_month_filter_current_year.json"
+    },
+    {
+        "QuestionNumber": 6,
+        "question": "Switch to TABLE",
+        "expected_objects_file": "table_total_customers_net_orders_by_month_filter_current_year.json"
+    },
+    {
+        "QuestionNumber": 7,
+        "question": "Add one more attribute Product brand",
+        "expected_objects_file": "table_total_customers_net_orders_by_month_and_product_brand_filter_current_year.json"
+    },
+    {
+        "QuestionNumber": 8,
+        "question": "Add attribute filter Product branch not in (Adidas, AllModern)",
+        "expected_objects_file": "table_total_customers_net_orders_by_month_filter_current_year_with_product_brand_filter.json"
+    },
+    {
+        "QuestionNumber": 9,
+        "question": "Generate PIE chart showing Gross Profit by Customer state filter by Customer country 'Canada'",
+        "expected_objects_file": "pie_gross_profit_by_customer_state_filter_canada.json"
+    },
+    {
+        "QuestionNumber": 10,
+        "question": "Generate BAR chart showing Avg Rating, Median and Max rating by Product category",
+        "expected_objects_file": "bar_avg_median_max_rating_by_product_category.json"
+    },
+    {
+        "QuestionNumber": 11,
+        "question": "What is number of Order line id by Order date - Year filtered for 2023 and display as Column chart?",
+        "expected_objects_file": "column_order_line_id_by_order_date_year_filter_2023.json"
+    },
+    {
+        "QuestionNumber": 12,
+        "question": "Change Order date filter for last 2 years",
+        "expected_objects_file": "column_order_line_id_by_order_date_year_filter_last_2_years.json"
+    },
+    {
+        "QuestionNumber": 13,
+        "question": "Consider breaking down the data by month for a more granular view over the last 2 years",
+        "expected_objects_file": "column_order_line_id_by_order_date_month_filter_last_2_years.json"
+    },
+    {
+        "QuestionNumber": 15,
+        "question": "Generate COLUMN chart including Avg of Monthly quantity bom broken down by Date - Quarter/Year. Filtered by Inventory month next year",
+        "expected_objects_file": "column_avg_monthly_quantity_bom_by_date_quarter_year_filter_next_year.json"
+    },
+    {
+        "QuestionNumber": 16,
+        "question": "what is total of Order unit discount per Customer created date - Month filtered for last year",
+        "expected_objects_file": "column_total_order_unit_discount_by_customer_created_date_month_filter_last_year.json"
+    },
+    {
+        "QuestionNumber": 17,
+        "question": "what is total of Order unit discount per Customer created date - Month filtered for 10 months ahead",
+        "expected_objects_file": "column_total_order_unit_discount_by_customer_created_date_month_filter_10_months_ahead.json"
     }
 ]

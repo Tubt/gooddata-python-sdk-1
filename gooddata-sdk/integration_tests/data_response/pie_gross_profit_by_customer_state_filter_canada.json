@@ -1,0 +1,33 @@
+{
+  "id": "gross_profit_by_customer_state",
+  "title": "Gross Profit by Customer State",
+  "visualizationType": "PIE",
+  "metrics": [
+    {
+      "id": "gross_profit",
+      "type": "metric",
+      "title": "Gross Profit"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "customer_state",
+      "type": "attribute",
+      "title": "Customer state"
+    }
+  ],
+  "filters": [
+    {
+      "using": "customer_country",
+      "include": [
+        "Canada"
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a column chart for easier comparison of Gross Profit across Customer States.",
+      "label": "Switch to Column Chart"
+    }
+  ]
+}

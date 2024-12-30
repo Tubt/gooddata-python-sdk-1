@@ -1,7 +1,13 @@
 # (C) 2024 GoodData Corporation
+import difflib
+import json
 import os
 import sys
 
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(ROOT_DIR)
+
+from env import WORKSPACE_ID
 import gooddata_api_client
 import pytest
 from gooddata_api_client.api import smart_functions_api
@@ -9,10 +15,6 @@ from gooddata_api_client.model.chat_history_request import ChatHistoryRequest
 from gooddata_api_client.model.chat_history_result import ChatHistoryResult
 from gooddata_api_client.model.chat_request import ChatRequest
 from utils import load_json, normalize_metrics
-
-sys.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from env import WORKSPACE_ID
 
 EXPECTED_OBJECTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data_response")
 QUESTIONS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "fixtures")
@@ -34,22 +36,41 @@ class gooddataAiChatApp:
         )
 
 
+def print_diff(actual, expected, context):
+    actual_str = json.dumps(actual, indent=4, sort_keys=True)
+    expected_str = json.dumps(expected, indent=4, sort_keys=True)
+    diff = difflib.unified_diff(
+        expected_str.splitlines(), actual_str.splitlines(), fromfile="expected", tofile="actual", lineterm=""
+    )
+    print(f"\n{context} mismatch:")
+    for line in diff:
+        print(line)
+
+
+def compare_and_print_diff(actual, expected, context):
+    if actual != expected:
+        print_diff(actual, expected, context)
+    assert actual == expected, f"{context} mismatch"
+
+
 def validate_response(actual_response, expected_response):
     actual_metrics = normalize_metrics(
         actual_response["created_visualizations"]["objects"][0]["metrics"], exclude_keys=["title"]
     )
     expected_metrics = normalize_metrics(expected_response["metrics"], exclude_keys=["title"])
-    assert actual_metrics == expected_metrics, "Metrics do not match"
-    assert (
-        actual_response["created_visualizations"]["objects"][0]["visualization_type"]
-        == expected_response["visualizationType"]
-    ), "Visualization type mismatch"
-    assert (
-        actual_response["created_visualizations"]["objects"][0]["dimensionality"] == expected_response["dimensionality"]
-    ), "Dimensionality mismatch"
-    assert (
-        actual_response["created_visualizations"]["objects"][0]["filters"] == expected_response["filters"]
-    ), "Filters mismatch"
+    compare_and_print_diff(actual_metrics, expected_metrics, "Metrics")
+
+    actual_visualization_type = actual_response["created_visualizations"]["objects"][0]["visualization_type"]
+    expected_visualization_type = expected_response["visualizationType"]
+    compare_and_print_diff(actual_visualization_type, expected_visualization_type, "Visualization type")
+
+    actual_dimensionality = actual_response["created_visualizations"]["objects"][0]["dimensionality"]
+    expected_dimensionality = expected_response["dimensionality"]
+    compare_and_print_diff(actual_dimensionality, expected_dimensionality, "Dimensionality")
+
+    actual_filters = actual_response["created_visualizations"]["objects"][0]["filters"]
+    expected_filters = expected_response["filters"]
+    compare_and_print_diff(actual_filters, expected_filters, "Filters")
 
 
 @pytest.fixture(scope="module")

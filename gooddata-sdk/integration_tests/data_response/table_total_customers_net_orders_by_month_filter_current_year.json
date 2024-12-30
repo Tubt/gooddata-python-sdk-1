@@ -1,0 +1,38 @@
+{
+  "id": "total_customers_net_orders_by_product_brand_current_year",
+  "title": "Total Customers and Net Orders by Product Brand for Current Year",
+  "visualizationType": "TABLE",
+  "metrics": [
+    {
+      "id": "total_customers",
+      "type": "metric",
+      "title": "Total Customers"
+    },
+    {
+      "id": "net_orders",
+      "type": "metric",
+      "title": "Net Orders"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "date.month",
+      "type": "attribute",
+      "title": "Date - Month/Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "date",
+      "granularity": "YEAR",
+      "_from": 0,
+      "to": 0
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a column chart to compare Total Customers and Net Orders across product brands",
+      "label": "Column Chart by Product Brand"
+    }
+  ]
+}

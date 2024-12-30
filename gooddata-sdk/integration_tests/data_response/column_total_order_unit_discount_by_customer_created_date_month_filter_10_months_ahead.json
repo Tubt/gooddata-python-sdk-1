@@ -1,0 +1,42 @@
+{
+  "id": "total_customers_net_orders_per_month_current_year",
+  "title": "Total Customers and Net Orders per Month for Current Year",
+  "visualizationType": "LINE",
+  "metrics": [
+    {
+      "id": "total_customers",
+      "type": "metric",
+      "title": "Total Customers"
+    },
+    {
+      "id": "net_orders",
+      "type": "metric",
+      "title": "Net Orders"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "date.month",
+      "type": "attribute",
+      "title": "Date - Month/Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "date",
+      "granularity": "YEAR",
+      "_from": 0,
+      "to": 0
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a BAR chart to compare total customers and net orders more distinctly across each month.",
+      "label": "Switch to BAR Chart"
+    },
+    {
+      "query": "Focus on the first half of the year by applying a date filter for the first six months.",
+      "label": "Focus on First Half of Year"
+    }
+  ]
+}

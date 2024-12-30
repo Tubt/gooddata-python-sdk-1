@@ -1,0 +1,38 @@
+{
+  "id": "total_order_unit_discount_per_customer_month_last_year",
+  "title": "Total Order Unit Discount per Customer Month (Last Year)",
+  "visualizationType": "COLUMN",
+  "metrics": [
+    {
+      "id": "order_unit_discount",
+      "type": "fact",
+      "title": "Total Order Unit Discount",
+      "aggFunction": "SUM"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "customer_created_date.month",
+      "type": "attribute",
+      "title": "Customer created date - Month/Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "customer_created_date",
+      "granularity": "YEAR",
+      "_from": -1,
+      "to": -1
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Consider switching to a line chart to show the trend of order unit discount throughout the months.",
+      "label": "Line Chart by Month"
+    },
+    {
+      "query": "Filter the data to show only the top 5 months with the highest order unit discount.",
+      "label": "Top 5 Months Only"
+    }
+  ]
+}

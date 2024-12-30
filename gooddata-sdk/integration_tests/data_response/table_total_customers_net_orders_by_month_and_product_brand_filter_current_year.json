@@ -1,0 +1,47 @@
+{
+  "id": "total_customers_and_net_orders_per_month_by_product_brand_for_current_year",
+  "title": "Total Customers and Net Orders per Month by Product Brand for Current Year",
+  "visualizationType": "TABLE",
+  "metrics": [
+    {
+      "id": "total_customers",
+      "type": "metric",
+      "title": "Total Customers"
+    },
+    {
+      "id": "net_orders",
+      "type": "metric",
+      "title": "Net Orders"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "date.month",
+      "type": "attribute",
+      "title": "Date - Month/Year"
+    },
+    {
+      "id": "product_brand",
+      "type": "attribute",
+      "title": "Product brand"
+    }
+  ],
+  "filters": [
+    {
+      "using": "date",
+      "granularity": "YEAR",
+      "_from": 0,
+      "to": 0
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Switch to a line chart to show the trend over months.",
+      "label": "Line Chart by Month"
+    },
+    {
+      "query": "Add a filter to focus on top 5 product brands by net orders.",
+      "label": "Top 5 Product Brands"
+    }
+  ]
+}

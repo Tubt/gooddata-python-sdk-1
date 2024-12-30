@@ -1,0 +1,39 @@
+{
+  "id": "avg_median_max_rating_by_product_category",
+  "title": "Avg, Median, Max Rating by Product Category",
+  "visualizationType": "BAR",
+  "metrics": [
+    {
+      "id": "rating",
+      "type": "fact",
+      "title": "Average Rating",
+      "aggFunction": "AVG"
+    },
+    {
+      "id": "rating",
+      "type": "fact",
+      "title": "Median Rating",
+      "aggFunction": "MEDIAN"
+    },
+    {
+      "id": "rating",
+      "type": "fact",
+      "title": "Max Rating",
+      "aggFunction": "MAX"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "product_category",
+      "type": "attribute",
+      "title": "Product category"
+    }
+  ],
+  "filters": [],
+  "suggestions": [
+    {
+      "query": "Switch to a LINE chart to visualize the rating trends over time if historical data is available.",
+      "label": "Line Chart by Time"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "total_customers_net_orders_per_month_by_product_brand",
+  "title": "Total Customers and Net Orders Per Month by Product Brand",
+  "visualizationType": "TABLE",
+  "metrics": [
+    {
+      "id": "total_customers",
+      "type": "metric",
+      "title": "Total Customers"
+    },
+    {
+      "id": "net_orders",
+      "type": "metric",
+      "title": "Net Orders"
+    }
+  ],
+  "dimensionality": [
+    {
+      "id": "product_brand",
+      "type": "attribute",
+      "title": "Product brand"
+    },
+    {
+      "id": "date.month",
+      "type": "attribute",
+      "title": "Date - Month/Year"
+    }
+  ],
+  "filters": [
+    {
+      "using": "date",
+      "granularity": "YEAR",
+      "_from": 0,
+      "to": 0
+    },
+    {
+      "using": "product_brand",
+      "exclude": [
+        "Adidas",
+        "AllModern"
+      ]
+    }
+  ],
+  "suggestions": [
+    {
+      "query": "Add a filter to view data only for the current year.",
+      "label": "Filter to Current Year"
+    }
+  ]
+}
